@@ -20,3 +20,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// FlightController
+Route::get("/create", "FlightController@create")->name("flights.craete");
+Route::post("/create", "FlightController@store")->name("flights.store");

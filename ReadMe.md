@@ -101,3 +101,92 @@ Route::resource('photos', 'PhotoController');
 ~~~
 
 위처럼 설정 하므로서 get, post, put, delete... 같은 중복의 코드를 줄여서 `resource` 하나로 사용할 수 있습니다.
+
+# Model 데이터베이스에 저장
+
+나의 local mysql 정보
+
+~~~
+database test
+username root
+password fhrmdls12
+~~~
+
+visual studio code sqltools 쿼리 조회상법
+
+`View -> Command Palette -> SQL Run this file`
+
+[https://laravel.kr/docs/7.x/eloquent#Eloquent%20%EB%AA%A8%EB%8D%B8%20%EC%BB%A8%EB%B2%A4%EC%85%98] - 모델 정의하기
+
+~~~
+php artisan make:model Flight -mc
+~~~
+
+Flight 라는 모델을 `/app/` 위치에 생성합니다.
+Controller `/app/Http/Controllers/` 위치에 생성합니다.
+
+> /database/migrations/최근생성된파일
+
+~~~
+...
+public function up()
+    {
+        Schema::create('flights', function (Blueprint $table) {
+            // Custom Code
+            $table->bigIncrements("id");
+            $table->unsignedInteger("user_id");
+            $table->string("title");
+            $table->text("description");
+            // Custom Code
+            $table->timestamps();
+        });
+    }
+    ...
+}    
+~~~
+
+~~~
+php artisan migrate
+~~~
+
+database 업데이트
+
+이 후 Controller 처리하여 view 를 생성합니다.
+
+> namespace App\Http\Controllers;
+
+~~~
+class FlightController extends Controller
+{
+    public function create() 
+    {
+        return view("flights.create");
+    }
+
+    public function store(Request $request)
+    {
+        return $request -> all();
+    }
+}t
+~~~
+
+> resources/views/flights/create.blade.php
+
+~~~
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h1>Create Page</h1>
+            
+            <form action="{{ route('flights.store') }}" method="post">
+                @csrf
+                <input type="text" name="text" placeholder="title">
+                <input type="text" name="description" placeholder="description">
+                <button>Create</button>
+            </form>
+        </div>
+    </div>
+</div>
+@endsection
+~~~
