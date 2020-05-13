@@ -22,5 +22,12 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 // FlightController
-Route::get("/create", "FlightController@create")->name("flights.craete");
-Route::post("/create", "FlightController@store")->name("flights.store");
+Route::get("/flight/create", "FlightController@create")->name("flights.craete");
+Route::post("/flight/store", "FlightController@store")->name("flights.store");
+
+// Profile
+Route::get("/users/{id}", "ProfileController@show")->name("user.profile.show");
+
+// PostController
+Route::get("/post/create", "PostController@create")->name("posts.create");
+Route::post("/post/store", "PostController@store")->name("posts.store");
