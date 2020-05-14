@@ -10,7 +10,7 @@ class PostController extends Controller
 {
     public function create()
     {
-        $posts = Post::with(["tags"])->get();
+        $posts = Post::with(['tags'])->get();
 
         return view("posts.create", compact('posts'));
     }
@@ -25,7 +25,7 @@ class PostController extends Controller
 
         foreach ($tags as $tag) {
             $tag = Tag::updateOrCreate([
-                "name" => $tag
+                "name" => $tag,
             ]);
 
             $post->tags()->attach($tag->id);

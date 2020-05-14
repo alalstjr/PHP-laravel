@@ -28,7 +28,6 @@
       <excludeFolder url="file://$MODULE_DIR$/blog/vendor/hamcrest/hamcrest-php" />
       <excludeFolder url="file://$MODULE_DIR$/blog/vendor/laravel/framework" />
       <excludeFolder url="file://$MODULE_DIR$/blog/vendor/laravel/tinker" />
-      <excludeFolder url="file://$MODULE_DIR$/blog/vendor/laravel/ui" />
       <excludeFolder url="file://$MODULE_DIR$/blog/vendor/league/commonmark" />
       <excludeFolder url="file://$MODULE_DIR$/blog/vendor/league/flysystem" />
       <excludeFolder url="file://$MODULE_DIR$/blog/vendor/mockery/mockery" />

@@ -51,9 +51,9 @@ mysql -uroot -p
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=laravel
+DB_DATABASE=test
 DB_USERNAME=root
-DB_PASSWORD=
+DB_PASSWORD=fhrmdls12
 ~~~
 
 # Authentication 설정
@@ -121,10 +121,10 @@ visual studio code sqltools 쿼리 조회상법
 [https://laravel.kr/docs/7.x/eloquent#Eloquent%20%EB%AA%A8%EB%8D%B8%20%EC%BB%A8%EB%B2%A4%EC%85%98] - 모델 정의하기
 
 ~~~
-php artisan make:model Flight -mc
+php artisan make:model Blog -mc
 ~~~
 
-Flight 라는 모델을 `/app/` 위치에 생성합니다.
+Blog 라는 모델을 `/app/` 위치에 생성합니다.
 Controller `/app/Http/Controllers/` 위치에 생성합니다.
 
 > /database/migrations/최근생성된파일
@@ -133,7 +133,7 @@ Controller `/app/Http/Controllers/` 위치에 생성합니다.
 ...
 public function up()
     {
-        Schema::create('flights', function (Blueprint $table) {
+        Schema::create('blogs', function (Blueprint $table) {
             // Custom Code
             $table->bigIncrements("id");
             $table->unsignedInteger("user_id");
@@ -158,11 +158,11 @@ database 업데이트
 > namespace App\Http\Controllers;
 
 ~~~
-class FlightController extends Controller
+class BlogController extends Controller
 {
     public function create() 
     {
-        return view("flights.create");
+        return view("blogs.create");
     }
 
     public function store(Request $request)
@@ -172,16 +172,18 @@ class FlightController extends Controller
 }t
 ~~~
 
-> resources/views/flights/create.blade.php
+> resources/views/blogs/create.blade.php
 
 ~~~
+@extends('layouts.app')
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <h1>Create Page</h1>
             
-            <form action="{{ route('flights.store') }}" method="post">
+            <form action="{{ route('blogs.store') }}" method="post">
                 @csrf
                 <input type="text" name="text" placeholder="title">
                 <input type="text" name="description" placeholder="description">
@@ -191,6 +193,16 @@ class FlightController extends Controller
     </div>
 </div>
 @endsection
+~~~
+
+Route 설정
+
+> web.php
+
+~~~
+// BlogController
+Route::get("/blog/create", "BlogController@create")->name("blogs.create");
+Route::post("/blog/store", "BlogController@store")->name("blogs.store");
 ~~~
 
 # One to One relationship
@@ -242,7 +254,7 @@ public function up()
 {
     Schema::create('profiles', function (Blueprint $table) {
         $table->id();
-        $table->unsignedBigInteger('userId');
+        $table->unsignedBigInteger('user_id');
         $table->string('phone')->nullable();
         $table->string('address')->nullable();
         $table->string('nationality')->nullable();
@@ -278,7 +290,157 @@ Route 설정 후 ProfileController show 메소드를 완성합니다.
 > /app/Http/Controller/ProfileController.php
 
 ~~~
+class ProfileController extends Controller
+{
+    public function show($id)
+    {
+        $user = User::find($id)->profile;
 
+        dd($user);
+    }
+}
+~~~
+
+유저가 가지고있는 profile 정보를 가져옵니다.
+
+# One To Many
+
+주로 사용하는 예제는 포스트 하나에 등록된 댓글 여러개..
+
+1 : M 관계는 한 쪽 엔티티가 관계를 맺은 엔티티 쪽의 여러 객체를 가질 수 있는 것을 의미합니다.
+
+이 관계는 매우 흔한 방식이며, 실제 DB를 설계할 때 자주 쓰이는 방식입니다.
+
+~~~
+A -> B, C, D, E ...
+~~~
+
+간단 예제를 만들어 보겠습니다.
+
+- DATABASE
+    - comment
+
+~~~
+php artisan make:model Comment -mc
+~~~
+
+> /database/migrations/CreateCommentsTable
+
+~~~
+public function up()
+{
+    Schema::create('comments', function (Blueprint $table) {
+        $table->id();
+        $table->unsignedBigInteger('user_id');
+        $table->unsignedBigInteger('post_id');
+        $table->text('text');
+        $table->timestamps();
+    });
+}
+~~~
+
+이후 Post Model 에 Comment 테이블을 `One to Many` 관계를 설정합니다.
+
+> /app/Post.php
+
+~~~
+class Post extends Model
+{
+    // 대량 할당 - Mass Assignment
+    protected $guarded = [];
+
+    public function comments()
+    {
+        return $this->hasMany('App\Comment');
+    }
+}
+~~~
+
+다음 View 출력해주기 위해서 Route 설정을 합니다.
+
+> web.php
+
+~~~
+// Post
+Route::get('/post/{id}', "PostController@show")->name('posts.show');
+Route::post('/comments', "CommentController@store")->name('comments.store');
+~~~
+
+댓글 생성 Controller 설정
+
+> App\Http\Controllers/CommentController
+
+~~~
+class CommentController extends Controller
+{
+    public function store(Request $request)
+    {
+        Comment::create([
+            'user_id' => $request->user()->id,
+            'post_id' => $request->post_id,
+            'text' => $request->text,
+        ]);
+
+        return redirect()->back();
+    }
+}
+~~~
+
+게시글 생성 Controller 설정
+
+> App\Http\Controllers\PostController
+
+~~~
+class PostController extends Controller
+{
+    public function show($id)
+    {
+        $post = Post::with(['comments'])->where('id', $id)->firstOrFail();
+
+        return view('posts.show', compact('post'));
+    }
+
+    public function store(Request $request)
+    {
+        Post::create([
+            'user_id' => $request->user()->id,
+            'title' => $request->title,
+        ]);
+
+        return redirect()->back();
+    }
+}
+~~~
+
+> resources/views/post/show.blade.php
+
+~~~
+@extends('layouts.app')
+
+@section('content')
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h1>Post Show Page</h1>
+                <p>Post Title : {{ $post->title }}</p>
+            </div>
+
+            <h2>Post Comment List</h2>
+            <div>
+                @foreach($post->comments as $comment)
+                    <p>{{ $comment->text }}</p>
+                @endforeach
+            </div>
+
+            <form action="{{ route('comments.store') }}" method="post">
+                @csrf
+                <input type="text" name="post_id" value="{{ $post->id }}">
+                <input type="text" name="text" placeholder="text">
+                <button>Create</button>
+            </form>
+        </div>
+    </div>
+@endsection
 ~~~
 
 # Many to Many relationship

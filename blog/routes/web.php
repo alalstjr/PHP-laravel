@@ -21,13 +21,17 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-// FlightController
-Route::get("/flight/create", "FlightController@create")->name("flights.craete");
-Route::post("/flight/store", "FlightController@store")->name("flights.store");
+// BlogController
+Route::get('/blog/create', 'BlogController@create')->name('blogs.create');
+Route::post('/blog/store', 'BlogController@store')->name('blogs.store');
+Route::get('/blog/{id}', 'BlogController@show')->name('blogs.show');
 
-// Profile
-Route::get("/users/{id}", "ProfileController@show")->name("user.profile.show");
+// CommentController
+Route::post('/comments', 'CommentController@store')->name('comments.store');
+
+// ProfileController
+Route::get('/users/{id}', 'ProfileController@show')->name('user.profile.show');
 
 // PostController
-Route::get("/post/create", "PostController@create")->name("posts.create");
-Route::post("/post/store", "PostController@store")->name("posts.store");
+Route::get('/post/create', 'PostController@create')->name('posts.create');
+Route::post('/posts', 'PostController@store')->name('posts.store');

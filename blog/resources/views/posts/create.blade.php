@@ -9,11 +9,11 @@
                 @foreach($posts as $post)
                     <ul>
                         <li>
-                            Title : {{ $post->title }}} <br/>
+                            Title : {{ $post->title }} <br/>
                             Tags :
-                                @foreach($post->tags as $tag)
-                                    {{$tag->name}}}
-                                @endforeach
+                            @foreach($post->tags as $tag)
+                                {{$tag->name}}
+                            @endforeach
                         </li>
                     </ul>
                 @endforeach
