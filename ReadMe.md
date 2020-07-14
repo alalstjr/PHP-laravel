@@ -80,6 +80,16 @@ php artisan migrate
 
 명령어를 실행하므로서 데이터베이스에 테이블을 생성합니다.
 
+# 부트스트랩 적용
+
+~~~
+composer require laravel/ui
+php artisan ui bootstrap
+php artisan ui bootstrap --auth
+npm install
+npm run dev
+~~~
+
 # CRUD Controller
 
 [https://laravel.kr/docs/7.x/controllers] - Controller
