@@ -529,3 +529,7 @@ https://stackoverflow.com/questions/61320547/laravel-7-change-name-of-login-cred
 유저 인지 아닌지 체크
 
 https://laravel.com/docs/7.x/validation#rule-required-if
+
+# 보류) 로그인 붙이기
+
+https://gracefullight.dev/2017/07/09/Laravel-5-4-Login-with-Auth/
