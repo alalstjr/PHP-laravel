@@ -523,3 +523,9 @@ php artisan make:migration create_users_table --create=users
 # 커스텀 로그인
 
 https://stackoverflow.com/questions/61320547/laravel-7-change-name-of-login-credentials
+
+# Valid
+
+유저 인지 아닌지 체크
+
+https://laravel.com/docs/7.x/validation#rule-required-if
