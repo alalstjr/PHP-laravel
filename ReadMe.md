@@ -520,3 +520,6 @@ https://stackoverflow.com/questions/16791613/add-a-new-column-to-existing-table-
 
 php artisan make:migration create_users_table --create=users
 
+# 커스텀 로그인
+
+https://stackoverflow.com/questions/61320547/laravel-7-change-name-of-login-credentials
