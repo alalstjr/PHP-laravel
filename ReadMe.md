@@ -486,3 +486,32 @@ onDelete('cascade');
 
 
 [https://juyoung-1008.tistory.com/17] - mysql 컬럼 수정
+
+# mysql 데이터베이스 컬럼 추가
+
+마이그레이션을 생성하기 위해 Artisan CLI에서 migrate : make 명령을 사용할 수 있습니다. 기존 모델과의 충돌을 피하려면 특정 이름을 사용하십시오.
+
+라 라벨 3
+
+php artisan migrate:make add_paid_to_users
+라 라벨 5 이상 :
+
+php artisan make:migration add_paid_to_users_table --table=users
+그런 다음 Schema::table()새 테이블을 작성하지 않고 기존 테이블에 액세스 할 때 메소드 를 사용해야합니다 . 그리고 다음과 같은 열을 추가 할 수 있습니다.
+
+public function up()
+{
+    Schema::table('users', function($table) {
+        $table->integer('paid');
+    });
+}
+롤백 옵션을 추가하는 것을 잊지 마십시오.
+
+public function down()
+{
+    Schema::table('users', function($table) {
+        $table->dropColumn('paid');
+    });
+}
+
+https://stackoverflow.com/questions/16791613/add-a-new-column-to-existing-table-in-a-migration
