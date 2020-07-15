@@ -515,3 +515,8 @@ public function down()
 }
 
 https://stackoverflow.com/questions/16791613/add-a-new-column-to-existing-table-in-a-migration
+
+# 새로운 마이그래이션 추가
+
+php artisan make:migration create_users_table --create=users
+
