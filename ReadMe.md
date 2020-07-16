@@ -542,3 +542,7 @@ https://zetawiki.com/wiki/Laravel_%EC%BB%A4%EC%8A%A4%ED%85%80_%ED%97%AC%ED%8D%BC
 
 https://www.itsolutionstuff.com/post/laravel-6-import-export-excel-csv-file-tutorialexample.html
 https://m.blog.naver.com/rladlaks123/221774073215
+
+# 페이징
+
+https://www.itsolutionstuff.com/post/laravel-7-pagination-tutorialexample.html
