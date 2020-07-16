@@ -537,3 +537,7 @@ https://gracefullight.dev/2017/07/09/Laravel-5-4-Login-with-Auth/
 # 커스텀 헬퍼함수 추가
 
 https://zetawiki.com/wiki/Laravel_%EC%BB%A4%EC%8A%A4%ED%85%80_%ED%97%AC%ED%8D%BC_%ED%95%A8%EC%88%98_%EC%B6%94%EA%B0%80
+
+# 엑셀 기능
+
+https://www.itsolutionstuff.com/post/laravel-6-import-export-excel-csv-file-tutorialexample.html
