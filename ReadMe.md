@@ -551,3 +551,8 @@ https://stackoverflow.com/questions/20701216/laravel-default-orderby
 # active function
 
 https://www.codechief.org/article/laravel-6-how-to-make-menu-item-active-by-urlroute#gsc.tab=0
+
+# 소켓 통신
+
+https://github.com/andhikayuana/laravel-socket.io
+https://modestasv.com/chat-with-laravel-pusher-and-socket-io-at-your-command/
