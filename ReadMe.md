@@ -560,3 +560,5 @@ https://modestasv.com/chat-with-laravel-pusher-and-socket-io-at-your-command/
 # AWS
 
 https://tech.cloud.nongshim.co.kr/2018/10/11/%EC%B4%88%EB%B3%B4%EC%9E%90%EB%A5%BC-%EC%9C%84%ED%95%9C-aws-%EC%9B%B9%EA%B5%AC%EC%B6%95-%EC%9B%B9%EC%84%9C%EB%B2%84-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98-%EC%86%8C%EA%B0%9C/
+
+https://www.youtube.com/watch?v=p03UoRiM_Cg
