@@ -567,4 +567,6 @@ https://www.youtube.com/watch?v=p03UoRiM_Cg
 
 https://velog.io/@minholee_93/AWS-Auto-Scaling-EC2%EC%97%90-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0-wsk40zo1sz
 
+## 로드밸런서
 https://www.youtube.com/watch?v=zTMTAWsXk8I
+https://opentutorials.org/course/608/3008
