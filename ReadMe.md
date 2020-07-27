@@ -571,3 +571,7 @@ https://velog.io/@minholee_93/AWS-Auto-Scaling-EC2%EC%97%90-%EC%A0%81%EC%9A%A9%E
 https://www.youtube.com/watch?v=zTMTAWsXk8I
 https://opentutorials.org/course/608/3008
 https://opentutorials.org/course/608/3295
+
+# HTTPS 적용
+
+https://velog.io/@minholee_93/AWS-ELB-SSL-%EC%9D%B8%EC%A6%9D%EC%84%9C-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0-mfk4dpjrd6
