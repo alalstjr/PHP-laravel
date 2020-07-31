@@ -578,6 +578,9 @@ https://velog.io/@minholee_93/AWS-ELB-SSL-%EC%9D%B8%EC%A6%9D%EC%84%9C-%EC%A0%81%
 - 
 https://medium.com/@yangga0070/aws-%EB%A1%9C%EB%93%9C%EB%B0%B8%EB%9F%B0%EC%84%9C-http-https-%EB%A6%AC%EB%8B%A4%EC%9D%B4%EB%A0%89%EC%85%98-37c1039be0ab
 
+
+https://musma.github.io/2019/09/16/what-to-do-after-you-buy-your-new-domain-on-aws.html
+
 # aws 클러스터
 
 https://medium.com/harrythegreat/ecs%EB%A5%BC-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0%EC%A0%84-%EC%95%8C%EC%95%98%EC%9C%BC%EB%A9%B4-%EC%A2%8B%EC%95%98%EC%9D%84-%EA%B2%83%EB%93%A4-1-%EC%9A%A9%EC%96%B4-%EC%84%A4%EB%AA%85-92dbfb9d59f7
