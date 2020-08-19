@@ -587,4 +587,8 @@ https://medium.com/harrythegreat/ecs%EB%A5%BC-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%
 
 # 라라벨 asset http -> https 변경
 
-https://www.abhizer.com/use-laravel-with-ssl-laravel/
+https://www.abhizer.com/use-laravel-with-ssl-laravel
+
+# 마이그레이션 업데이트 방법
+
+https://qastack.kr/programming/16791613/add-a-new-column-to-existing-table-in-a-migration
