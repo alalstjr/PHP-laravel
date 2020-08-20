@@ -592,3 +592,11 @@ https://www.abhizer.com/use-laravel-with-ssl-laravel
 # 마이그레이션 업데이트 방법
 
 https://qastack.kr/programming/16791613/add-a-new-column-to-existing-table-in-a-migration
+
+# 라라벨 MVC 구조
+
+https://blog.d0ngd0nge.xyz/php-mvc-laravel-diregteori/
+
+# 라라벨 모던하게 구현
+
+http://library.gabia.com/contents/8488
