@@ -600,3 +600,13 @@ https://blog.d0ngd0nge.xyz/php-mvc-laravel-diregteori/
 # 라라벨 모던하게 구현
 
 http://library.gabia.com/contents/8488
+
+# 라라벨
+url 파라미터 가져오기
+https://stackoverflow.com/questions/31324801/lumen-get-url-parameter-in-a-blade-view
+
+blade 템플릿 파라미터 전송
+https://www.codegrepper.com/code-examples/php/laravel+5.8+blade+route+with+parameter
+
+# 라라벨 마이그레이션 수정
+https://laravel.com/docs/7.x/migrations
