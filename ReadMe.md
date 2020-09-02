@@ -610,3 +610,6 @@ https://www.codegrepper.com/code-examples/php/laravel+5.8+blade+route+with+param
 
 # 라라벨 마이그레이션 수정
 https://laravel.com/docs/7.x/migrations
+
+# git pull 충돌시
+https://insapporo2016.tistory.com/53
