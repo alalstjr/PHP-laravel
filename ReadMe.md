@@ -613,3 +613,6 @@ https://laravel.com/docs/7.x/migrations
 
 # git pull 충돌시
 https://insapporo2016.tistory.com/53
+
+# EC2 네트워크 적당하게 찾는 방법
+https://tech.cloud.nongshim.co.kr/2018/11/13/aws-ec2-network%EC%84%B1%EB%8A%A5%EC%97%90-%EB%8C%80%ED%95%B4/
