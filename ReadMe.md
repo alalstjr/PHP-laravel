@@ -617,5 +617,8 @@ https://insapporo2016.tistory.com/53
 # EC2 네트워크 적당하게 찾는 방법
 https://tech.cloud.nongshim.co.kr/2018/11/13/aws-ec2-network%EC%84%B1%EB%8A%A5%EC%97%90-%EB%8C%80%ED%95%B4/
 
+# EC2 적당한 
+https://aws.amazon.com/ko/ec2/instance-types/
+
 # 라라벨 alert 라이브러리
 https://realrashid.github.io/sweet-alert/
